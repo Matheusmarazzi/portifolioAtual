@@ -1,0 +1,39 @@
+[
+    {
+        "id": 0,
+        "Title":"Projeto pizzaria Web",
+        "description":"Um Projeto completo de sistema de comanda feito com typeScript e Node.",
+        "link": "https://marazzi-pizzaria.netlify.app/",
+        "img":"https://raw.githubusercontent.com/Matheusmarazzi/Imageteste/main/Pizzaria.PNG"
+    },
+    {
+        "id": 1,
+        "Title":"Projeto pizzaria Mobile",
+        "description":"Parte de sistema de comanda feito com React Native.",
+        "link": "https://marazzi-mobileview.netlify.app/",
+        "img":"https://raw.githubusercontent.com/Matheusmarazzi/Imageteste/main/Mobileview.PNG"
+    },
+    {
+        "id": 2,
+        "Title":"Stop the time",
+        "description":"Projeto simples com referencia a JOJO um anime onde um personagem pode parar o tempo.",
+        "link": "https://marazzi-theworld.netlify.app/",
+        "img":"https://raw.githubusercontent.com/Matheusmarazzi/Imageteste/main/The%20World.PNG"
+    },
+    {
+        "id": 3,
+        "Title":"NetMax",
+        "description":"Um sistema de filmes que estão em cartaz. Com intuito de praticar o consumo de api.",
+        "link": "https://marazzi-netmax.netlify.app/",
+        "img":"https://raw.githubusercontent.com/Matheusmarazzi/Imageteste/main/Netmax.PNG" 
+    },
+    {
+        "id": 4,
+        "Title":"Pokedex Web",
+        "description":"Um sistema de informações dos primeiros 1000 pokemons. Com intuito de praticar o consumo de api.",
+        "link":"https://marazzi-webdex.netlify.app/",
+        "img":"https://raw.githubusercontent.com/Matheusmarazzi/Imageteste/main/webdex.PNG" 
+        
+    }
+    
+]

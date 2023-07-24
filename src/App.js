@@ -1,15 +1,33 @@
 
 import {AiFillGithub, AiOutlineLinkedin, AiOutlineWhatsApp} from 'react-icons/ai';
 import {BiLogoGmail, BiMenu, BiLogoPostgresql, BiLogoReact, BiLogoJavascript} from 'react-icons/bi';
+import {FcNext , FcPrevious, FcCollapse, FcExpand} from 'react-icons/fc';
 import {LiaNode} from 'react-icons/lia';
+import projects from './json/projects.json';
 
 
-import projeto1 from './img/fundo1.png';
+import projeto1 from './img/color.png';
 import logo from './img/logo.svg';
 import me from './img/me.jpeg';
 import '../src/style/index.css';
+import { useState } from 'react';
 
 function App() {
+  const data = projects;
+  const [projetosExibidos, setProjetosExibidos] = useState(4);
+  const [atual, setatual] = useState(0);
+
+  const projetosSize = projects.length ;
+
+  function next(){
+    setProjetosExibidos(projetosExibidos+4);
+    setatual(atual+4);
+  }
+  function previou(){
+    setProjetosExibidos(projetosExibidos-4);
+    setatual(atual-4);
+  }
+  
 
 
 
@@ -41,25 +59,26 @@ function App() {
         
         </div>
       </div>
+      
       <div   className='projects'>
-        <h2>Meus Projetos</h2>
+        <h2 className='title'>Meus Projetos</h2>
         <div className='itens'>
-          <div className='card'>
-            <img  className='projetoImg'  src={projeto1}/>
-            <p>Projeto Pizzaria</p>
-          </div>
-          <div className='card'>
-            <img className='projetoImg'  src={projeto1}/>
-            <p>Projeto Pizzaria</p>
-          </div>
-          <div className='card'>
-            <img className='projetoImg'  src={projeto1}/>
-            <p>Projeto Pizzaria</p>
-          </div>
-          <div className='card'>
-            <img className='projetoImg'  src={projeto1}/>
-            <p>Projeto Pizzaria</p>
-          </div>
+          {projetosExibidos > 4 && (
+            <button onClick={previou} className='pageProjects'><FcPrevious className='btnPage'/><FcCollapse size={20} className='btnMobile'/></button>
+          )}
+          {data.slice(atual, projetosExibidos).map((item, index) => (
+            <div key={item.id} className='card'>
+              <img   className='projetoImg'  src={item.img}/>
+              <div className='description'>
+                <h5>{item.Title}</h5>
+                <p>{item.description}</p>
+                <a className='link' target='_blank' href={item.link}>Acessar</a>
+              </div>
+            </div>
+          ))}
+          {projetosExibidos < projetosSize && (
+            <button  onClick={next} className='pageProjects' ><FcNext className='btnPage' /><FcExpand size={20} className='btnMobile'/></button>
+          )}
           
         </div>
         
@@ -68,7 +87,7 @@ function App() {
       </div>
 
       <div id='aboutMe' className='aboutMe'>
-          <h1>Sobre mim</h1>
+          <h1 className='title'>Sobre mim</h1>
           <div className='info'>
             <p>Sou de Itanhaém-SP.</p>
             <p>Estou cursando Análise e Desenvolvimento de Sistemas na Fatec de Praia Grande.</p>
@@ -81,7 +100,7 @@ function App() {
           </div>
       </div>
       <div id='skills' className='tech'>
-        <h1>Skills</h1>
+        <h1 className='title'>Skills</h1>
         <div className='skill'>
             <p>Desenvolvedor Full Stack com ampla experiência em construção de aplicações web responsivas e dinâmicas</p>
             <p>usando HTML, CSS e JavaScript. Proficiente em frameworks modernos como React e Next.js,</p>
