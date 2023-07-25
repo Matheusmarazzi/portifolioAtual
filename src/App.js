@@ -15,17 +15,35 @@ import { useState } from 'react';
 function App() {
   const data = projects;
   const [projetosExibidos, setProjetosExibidos] = useState(4);
+  const [animationDir, setAnimationDir] = useState(false);
+  const [animationEsq, setAnimationEsq] = useState(false);
+
   const [atual, setatual] = useState(0);
 
   const projetosSize = projects.length ;
 
   function next(){
-    setProjetosExibidos(projetosExibidos+4);
-    setatual(atual+4);
+    
+    setAnimationDir(true);
+    setTimeout(()=>{
+      setatual(atual+4);
+      setProjetosExibidos(projetosExibidos+4);
+      setAnimationDir(false)
+    }, 500)
+    
+
+    
+    
   }
   function previou(){
-    setProjetosExibidos(projetosExibidos-4);
-    setatual(atual-4);
+
+    setAnimationEsq(true);
+    setTimeout(()=>{
+
+      setProjetosExibidos(projetosExibidos-4);
+      setatual(atual-4);
+      setAnimationEsq(false)
+    },500)
   }
   
 
@@ -67,7 +85,7 @@ function App() {
             <button onClick={previou} className='pageProjects'><FcPrevious className='btnPage'/><FcCollapse size={20} className='btnMobile'/></button>
           )}
           {data.slice(atual, projetosExibidos).map((item, index) => (
-            <div key={item.id} className='card'>
+            <div key={item.id} className={`card ${animationDir && ('animationDir')} ${animationEsq && ('animationEsq')}`}>
               <img   className='projetoImg'  src={item.img}/>
               <div className='description'>
                 <h5>{item.Title}</h5>

@@ -147,8 +147,22 @@
     border-radius: 4px;
     cursor: pointer;
     height: 350px;
+    transition: 0.5s;
+
     /* padding-bottom: 2px; */
     
+}
+.card:hover{
+    scale: 1.3;
+    transition: 0.5s;
+}
+.animationDir{
+    transform: translateX(20px);
+    animation: slideIn 0.5s ease;
+}
+.animationEsq{
+    transform: translateX(20px);
+    animation: slideOut 0.5s ease;
 }
 .description{
     display: flex;
@@ -161,6 +175,7 @@
     padding: 4px;
     background-color: blueviolet;
     border-radius: 4px;
+    justify-self: end;
 }
 .description h5{
     text-align: center;
@@ -286,14 +301,23 @@ footer{
         align-self: center;
     }
     .card{
+        margin-top: 4%;
         flex-direction: column;
         justify-content: space-between;
         padding: 2%;    
-        width: 90%;
+        width: 70%;
         height: 25%;
         align-items: center;
         overflow: auto;
+        transition: transform 0.5s ease;
     }
+    .animationDir{
+        animation: slideDown 0.5s ease;
+    }
+    .animationEsq{
+        animation: slideUp 0.5s ease;
+    }
+    
     .projetoImg{
         width: 50%;
         height: 50%;
@@ -319,5 +343,37 @@ footer{
     }
     .btnPage{
         display: none;
+    }
+}
+@keyframes slideIn {
+    from {
+      transform: translateX(0); /* Posição inicial: o item começa sem deslocamento */
+    }
+    to {
+      transform: translateX(700px); /* Posição final: o item desliza 20px para o lado direito */
+    }
+}
+@keyframes slideOut {
+    from {
+      transform: translateX(0); /* Posição inicial: o item começa sem deslocamento */
+    }
+    to {
+      transform: translateX(-700px); /* Posição final: o item desliza 20px para o lado direito */
+    }
+}
+@keyframes slideUp {
+    from {
+      transform: translateY(0); /* Posição inicial: o item começa sem deslocamento */
+    }
+    to {
+      transform: translateY(700px); /* Posição final: o item desliza 20px para o lado direito */
+    }
+}
+@keyframes slideDown {
+    from {
+      transform: translateY(0); /* Posição inicial: o item começa sem deslocamento */
+    }
+    to {
+      transform: translateY(-700px); /* Posição final: o item desliza 20px para o lado direito */
     }
 }
