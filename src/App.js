@@ -6,7 +6,7 @@ import {LiaNode} from 'react-icons/lia';
 import projects from './json/projects.json';
 
 
-import projeto1 from './img/color.png';
+
 import logo from './img/logo.svg';
 import me from './img/me.jpeg';
 import '../src/style/index.css';
